@@ -7,51 +7,42 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lora:wght@400;500;700&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#1C2340;--teal:#2B6B5E;--teal-light:#3A8B7A;--cream:#FEFDFB;--gray-light:#F5F4F1;--gray-text:#5F6B7A;--gray-border:#D4D1CB;--font-display:'Cormorant Garamond',Georgia,serif;--font-body:'Lora','Times New Roman',serif}
-body{font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--navy);background:var(--cream);-webkit-font-smoothing:antialiased}
-.page{max-width:720px;margin:0 auto;padding:3rem 1.5rem}
-.page h1{font-family:var(--font-display);font-size:2.5rem;font-weight:700;margin-bottom:0.5rem}
-.page .updated{color:var(--gray-text);font-size:14px;margin-bottom:2rem}
-.page h2{font-family:var(--font-display);font-size:1.5rem;font-weight:600;margin:2.5rem 0 0.75rem;color:var(--navy)}
-.page h3{font-family:var(--font-display);font-size:1.2rem;font-weight:600;margin:1.5rem 0 0.5rem}
-.page p{margin-bottom:1rem}
-.page ul{margin:0.5rem 0 1rem 1.5rem}.page li{margin-bottom:0.5rem}
-.page a{color:var(--teal)}
-.back{display:inline-block;color:var(--teal);text-decoration:none;margin-bottom:2rem;font-size:14px}
-.back:hover{text-decoration:underline}
-.placeholder{background:#FFF3E0;border:2px dashed #E6A23C;padding:1rem;border-radius:4px;margin:0.5rem 0;color:#8B6914;font-size:14px}
-.footer{text-align:center;padding:2rem 1.5rem;font-size:13px;color:#fff;background:var(--navy);margin-top:3rem}
-.footer a{color:var(--teal-light)}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lora:wght@400;500;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/shared.css">
 </head>
 <body>
 
-<div class="page">
-  <a href="/fn-gs-1" class="back">&larr; Zurück zur Startseite</a>
+<nav class="navbar">
+  <a href="/" class="nav-logo">ECOMAX</a>
+  <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menü"><span></span><span></span><span></span></button>
+  <div class="nav-links">
+    <a href="/grundsicherung-beantragen">Antrag stellen</a>
+    <a href="/wohngeld-oder-grundsicherung">Wohngeld vs GS</a>
+    <a href="/kinderzuschlag">Kinderzuschlag</a>
+    <a href="/ueber-uns">Über uns</a>
+    <a href="/fn-gs-2" class="nav-cta">Rechner starten</a>
+  </div>
+</nav>
 
+<article class="article">
   <h1>Datenschutzerklärung</h1>
-  <p class="updated">Stand: September 2026</p>
-
+  <p class="meta">Stand: September 2026</p>
 
   <h2>1. Verantwortlicher</h2>
 
-  <div class="placeholder">
-    <strong>[Dein vollständiger Name]</strong><br>
-    [Adresse]<br>
-    E-Mail: [Deine E-Mail]<br>
-    <em>(Gleiche Daten wie im Impressum)</em>
-  </div>
-
+  <p><strong>LOOK SKY ECOM SL</strong><br>
+  Vertreten durch: Julián Huelva Pinto<br>
+  Polígono Dominicano, Nave 35C<br>
+  21610 San Juan del Puerto, Spanien<br>
+  E-Mail: miriam@ecomax.site<br>
+  Telefon: +34 648 679 124<br>
+  CIF: B56371313</p>
 
   <h2>2. Übersicht der Verarbeitungen</h2>
 
   <p>Diese Datenschutzerklärung informiert dich über Art, Umfang und Zweck der Verarbeitung personenbezogener Daten auf unserer Website <strong>de.ecomax.site</strong> gemäß der Datenschutz-Grundverordnung (DSGVO) und des Bundesdatenschutzgesetzes (BDSG).</p>
 
   <p>Wir verarbeiten personenbezogene Daten nur, soweit dies erforderlich ist — entweder auf Grundlage deiner Einwilligung, zur Vertragserfüllung, aufgrund unserer berechtigten Interessen oder aufgrund gesetzlicher Verpflichtungen.</p>
-
 
   <h2>3. Hosting</h2>
 
@@ -69,7 +60,6 @@ body{font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--na
   <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einem stabilen und sicheren Webauftritt).</p>
 
   <p><strong>Drittlandtransfer:</strong> Vercel ist unter dem EU-US Data Privacy Framework zertifiziert. Weitere Informationen: <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">vercel.com/legal/privacy-policy</a></p>
-
 
   <h2>4. Cookies und Einwilligung</h2>
 
@@ -92,7 +82,6 @@ body{font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--na
   </ul>
   <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Du kannst deine Einwilligung jederzeit widerrufen, indem du deine Browser-Cookies löschst.</p>
 
-
   <h2>5. Google AdSense</h2>
 
   <p>Wir nutzen <strong>Google AdSense</strong> (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland) zur Einblendung von Werbeanzeigen. Google AdSense verwendet Cookies und Web-Beacons, um Anzeigen basierend auf deinen bisherigen Besuchen auf dieser und anderen Websites zu schalten.</p>
@@ -104,7 +93,6 @@ body{font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--na
   </ul>
 
   <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung über Cookie-Banner).</p>
-
 
   <h2>6. Google Analytics</h2>
 
@@ -120,7 +108,6 @@ body{font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--na
   <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).</p>
   <p>Du kannst die Erfassung durch Google Analytics verhindern: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Browser-Add-on zur Deaktivierung</a>.</p>
 
-
   <h2>7. Meta Pixel (Facebook)</h2>
 
   <p>Auf der Rechner-Seite verwenden wir das <strong>Meta Pixel</strong> (Meta Platforms Ireland Limited, 4 Grand Canal Square, Dublin 2, Irland) zur Conversion-Messung unserer Meta-Werbeanzeigen.</p>
@@ -133,7 +120,6 @@ body{font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--na
 
   <p>Weitere Informationen: <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">facebook.com/privacy/policy</a></p>
   <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).</p>
-
 
   <h2>8. E-Mail-Newsletter (MailerLite)</h2>
 
@@ -150,7 +136,6 @@ body{font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--na
 
   <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). MailerLite ist ein EU-Unternehmen mit Sitz in Litauen.</p>
 
-
   <h2>9. Lokale Speicherung (localStorage)</h2>
 
   <p>Unser Rechner speichert dein Berechnungsergebnis im localStorage deines Browsers (nicht auf unserem Server). Diese Daten:</p>
@@ -159,7 +144,6 @@ body{font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--na
     <li>Werden nicht an uns oder Dritte übermittelt</li>
     <li>Können von dir jederzeit gelöscht werden (Browser-Daten löschen)</li>
   </ul>
-
 
   <h2>10. Deine Rechte</h2>
 
@@ -177,22 +161,27 @@ body{font-family:var(--font-body);font-size:16px;line-height:1.65;color:var(--na
 
   <p>Zur Ausübung deiner Rechte kontaktiere uns unter der im Impressum angegebenen E-Mail-Adresse.</p>
 
-
   <h2>11. Beschwerderecht</h2>
 
   <p>Du hast das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zuständig ist die Aufsichtsbehörde deines Bundeslandes. Eine Übersicht findest du hier: <a href="https://www.bfdi.bund.de/DE/Service/Anschriften/Laender/Laender-node.html" target="_blank" rel="noopener">bfdi.bund.de — Landesbehörden</a></p>
 
   <p>Da der Betreiber dieser Website seinen Sitz in Spanien hat, ist alternativ die spanische Datenschutzbehörde (AEPD) zuständig: <a href="https://www.aepd.es" target="_blank" rel="noopener">aepd.es</a></p>
 
-
   <h2>12. Änderungen</h2>
 
   <p>Wir behalten uns vor, diese Datenschutzerklärung bei Bedarf anzupassen, um sie stets den aktuellen rechtlichen Anforderungen anzupassen oder um Änderungen unserer Dienste umzusetzen. Die aktuelle Version findest du immer auf dieser Seite.</p>
 
-</div>
+</article>
 
-<footer class="footer">
-  <p>Ecomax Deutschland &copy; 2026 · <a href="/impressum">Impressum</a></p>
+<footer class="site-footer">
+  <p>Ecomax Deutschland &copy; 2026</p>
+  <div class="footer-links">
+    <a href="/ueber-uns">Über uns</a>
+    <a href="/kontakt">Kontakt</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+    <a href="/agb">AGB</a>
+  </div>
 </footer>
 
 </body>

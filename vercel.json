@@ -4,7 +4,18 @@
     { "source": "/fn-gs-2", "destination": "/funnel/02-rechner.html" },
     { "source": "/fn-gs-3", "destination": "/funnel/03-ergebnis.html" },
     { "source": "/impressum", "destination": "/impressum.html" },
-    { "source": "/datenschutz", "destination": "/datenschutz.html" }
+    { "source": "/datenschutz", "destination": "/datenschutz.html" },
+    { "source": "/ueber-uns", "destination": "/ueber-uns.html" },
+    { "source": "/kontakt", "destination": "/kontakt.html" },
+    { "source": "/agb", "destination": "/agb.html" },
+    { "source": "/grundsicherung-beantragen", "destination": "/artikel/grundsicherung-beantragen.html" },
+    { "source": "/wohngeld-oder-grundsicherung", "destination": "/artikel/wohngeld-oder-grundsicherung.html" },
+    { "source": "/kinderzuschlag", "destination": "/artikel/kinderzuschlag.html" },
+    { "source": "/grundsicherung-bei-arbeit", "destination": "/artikel/grundsicherung-bei-arbeit.html" },
+    { "source": "/neue-grundsicherung-vs-buergergeld", "destination": "/artikel/neue-grundsicherung-vs-buergergeld.html" },
+    { "source": "/bildung-und-teilhabe", "destination": "/artikel/bildung-und-teilhabe.html" },
+    { "source": "/grundsicherung-eu-buerger", "destination": "/artikel/grundsicherung-eu-buerger.html" },
+    { "source": "/miete-heizung-jobcenter", "destination": "/artikel/miete-heizung-jobcenter.html" }
   ],
   "headers": [
     {
