@@ -410,6 +410,19 @@ tbody tr:nth-child(even){background:var(--gray-light)}
     banner.classList.add('visible');
   } catch(e) {}
 })();
+
+// ── Load GA4 after cookie consent ─────────────────
+(function(){
+  try {
+    var consent = localStorage.getItem('ecmx_de_cookie_consent');
+    if (consent === 'accepted') {
+      var g = document.createElement('script');
+      g.src = 'https://www.googletagmanager.com/gtag/js?id=G-501QLQMB5Q';
+      g.async = true; document.head.appendChild(g);
+      g.onload = function(){ window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments)} window.gtag=gtag; gtag('js',new Date()); gtag('config','G-501QLQMB5Q'); };
+    }
+  } catch(e){}
+})();
 </script>
 
 </body>

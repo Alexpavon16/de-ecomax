@@ -621,7 +621,7 @@ function toggleAd() {
   document.body.style.paddingBottom = m ? '30px' : '110px';
 }
 
-// ── Load AdSense after cookie consent ─────────────────
+// ── Load AdSense + GA4 after cookie consent ─────────────────
 (function(){
   try {
     var consent = localStorage.getItem('ecmx_de_cookie_consent');
@@ -635,6 +635,10 @@ function toggleAd() {
           try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e){}
         });
       };
+      var g = document.createElement('script');
+      g.src = 'https://www.googletagmanager.com/gtag/js?id=G-501QLQMB5Q';
+      g.async = true; document.head.appendChild(g);
+      g.onload = function(){ window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments)} window.gtag=gtag; gtag('js',new Date()); gtag('config','G-501QLQMB5Q'); };
     }
   } catch(e){}
 })();

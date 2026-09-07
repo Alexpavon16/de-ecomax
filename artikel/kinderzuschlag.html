@@ -178,9 +178,10 @@
 </footer>
 
 <script>
-(function(){try{var c=localStorage.getItem('ecmx_de_cookie_consent');if(!c)document.getElementById('cookieBanner').classList.add('visible');else if(c==='accepted')loadAdSense()}catch(e){document.getElementById('cookieBanner').classList.add('visible')}})();
-function acceptCookies(){try{localStorage.setItem('ecmx_de_cookie_consent','accepted')}catch(e){}document.getElementById('cookieBanner').classList.remove('visible');loadAdSense()}
+(function(){try{var c=localStorage.getItem('ecmx_de_cookie_consent');if(!c)document.getElementById('cookieBanner').classList.add('visible');else if(c==='accepted'){loadAdSense();loadGA4()}}catch(e){document.getElementById('cookieBanner').classList.add('visible')}})();
+function acceptCookies(){try{localStorage.setItem('ecmx_de_cookie_consent','accepted')}catch(e){}document.getElementById('cookieBanner').classList.remove('visible');loadAdSense();loadGA4()}
 function rejectCookies(){try{localStorage.setItem('ecmx_de_cookie_consent','rejected')}catch(e){}document.getElementById('cookieBanner').classList.remove('visible')}
+function loadGA4(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-501QLQMB5Q';s.async=true;document.head.appendChild(s);s.onload=function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}window.gtag=gtag;gtag('js',new Date());gtag('config','G-501QLQMB5Q')}}
 function loadAdSense(){var s=document.createElement('script');s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7982065666403927';s.async=true;s.crossOrigin='anonymous';document.head.appendChild(s);s.onload=function(){document.querySelectorAll('.adsbygoogle').forEach(function(){try{(adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}})}}
 </script>
 </body>
