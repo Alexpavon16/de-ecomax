@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grundsicherung 2026 — Anspruch prüfen & berechnen | Ecomax</title>
+<meta name="description" content="Du arbeitest, aber das Geld reicht nicht? Prüfe in 2 Minuten, ob du Anspruch auf Grundsicherung hast und wie viel dir zusteht. Kostenloser Rechner 2026.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://de.ecomax.site/fn-gs-1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lora:wght@400;500;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --navy:#1C2340;
+  --teal:#2B6B5E;
+  --teal-light:#3A8B7A;
+  --cream:#FEFDFB;
+  --gray-light:#F5F4F1;
+  --gray-text:#5F6B7A;
+  --gray-border:#D4D1CB;
+  --bronze:#8B7355;
+  --font-display:'Cormorant Garamond',Georgia,serif;
+  --font-body:'Lora','Times New Roman',serif;
+  --font-mono:'Source Code Pro','Courier New',monospace;
+}
+
+body{
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.65;
+  color:var(--navy);
+  background:var(--cream);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── Cookie Banner ────────────────────────────────── */
+.cookie-banner{
+  position:fixed;
+  bottom:0;left:0;right:0;
+  z-index:9999;
+  background:var(--navy);
+  color:var(--cream);
+  padding:1.25rem 1.5rem;
+  font-size:14px;
+  line-height:1.6;
+  box-shadow:0 -4px 20px rgba(0,0,0,.2);
+  display:none;
+}
+.cookie-banner.visible{display:block}
+.cookie-banner p{margin-bottom:0.75rem;color:var(--cream)}
+.cookie-banner a{color:var(--teal-light)}
+.cookie-btns{display:flex;gap:10px;flex-wrap:wrap}
+.cookie-btn{
+  padding:10px 20px;
+  font-family:var(--font-body);
+  font-size:14px;
+  font-weight:600;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+}
+.cookie-accept{background:var(--teal);color:#fff}
+.cookie-reject{background:transparent;color:var(--cream);border:1px solid var(--gray-border)}
+
+/* ── Hero ──────────────────────────────────────────── */
+.hero{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:1.5rem 1.5rem 2rem;
+  max-width:800px;
+  margin:0 auto;
+}
+
+.hero-badge{
+  display:inline-block;
+  background:var(--teal);
+  color:var(--cream);
+  padding:6px 14px;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  border-radius:2px;
+  margin-bottom:2rem;
+}
+
+.hero h1{
+  font-family:var(--font-display);
+  font-size:clamp(1.6rem, 4vw, 2.4rem);
+  font-weight:700;
+  line-height:1.2;
+  color:var(--navy);
+  letter-spacing:-0.3px;
+  margin-bottom:1rem;
+}
+
+.hero .adsbygoogle{
+  display:block;
+  width:100%;
+  min-height:100px;
+  margin:1rem 0;
+}
+
+.hero-bottom{text-align:center}
+
+.hero-amount{
+  font-family:var(--font-mono);
+  font-size:clamp(1.3rem, 3vw, 1.8rem);
+  font-weight:500;
+  color:var(--teal);
+  margin:0 0 0.5rem;
+}
+
+.hero-question{
+  font-family:var(--font-display);
+  font-size:clamp(1.2rem, 2.5vw, 1.5rem);
+  font-weight:600;
+  color:var(--navy);
+  margin:0 0 1.25rem;
+}
+
+.cta-primary{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  background:var(--teal);
+  color:#fff;
+  font-family:var(--font-body);
+  font-size:18px;
+  font-weight:700;
+  padding:18px 40px;
+  border:none;
+  border-radius:8px;
+  text-decoration:none;
+  cursor:pointer;
+  transition:background .25s,transform .15s,box-shadow .25s;
+  justify-content:center;
+  box-shadow:0 4px 14px rgba(43,107,94,.35);
+  animation:ctaPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes ctaPulse{
+  0%,100%{transform:scale(1);box-shadow:0 4px 14px rgba(43,107,94,.35)}
+  50%{transform:scale(1.06);box-shadow:0 8px 28px rgba(43,107,94,.6)}
+}
+
+.cta-primary:hover{
+  background:#24594F;
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(43,107,94,.45);
+}
+.cta-primary svg{flex-shrink:0;transition:transform .25s}
+.cta-primary:hover svg{transform:translateX(4px)}
+
+.hero-note{font-size:13px;color:var(--gray-text);margin-top:1rem}
+
+/* ── Divider ───────────────────────────────────────── */
+.divider{width:60px;height:3px;background:var(--teal);margin:0 auto}
+
+/* ── Content ───────────────────────────────────────── */
+.content{
+  max-width:720px;
+  margin:0 auto;
+  padding:4rem 1.5rem 3rem;
+}
+
+.content h2{
+  font-family:var(--font-display);
+  font-size:2rem;
+  font-weight:600;
+  color:var(--navy);
+  margin:3rem 0 1rem;
+  letter-spacing:-0.2px;
+}
+
+.content h3{
+  font-family:var(--font-display);
+  font-size:1.5rem;
+  font-weight:600;
+  color:var(--navy);
+  margin:2rem 0 0.75rem;
+}
+
+.content p{margin-bottom:1rem;color:var(--navy)}
+.content p + p{margin-top:0}
+
+/* ── In-Content Ad ────────────────────────────────── */
+.ad-incontent{
+  margin:2rem 0;
+  text-align:center;
+}
+
+.ad-incontent .adsbygoogle{
+  display:block;
+  width:100%;
+  min-height:100px;
+}
+
+/* ── Info Card ─────────────────────────────────────── */
+.info-card{
+  background:var(--gray-light);
+  border:1px solid var(--gray-border);
+  border-left:3px solid var(--teal);
+  padding:1.5rem 2rem;
+  border-radius:2px;
+  margin:1.5rem 0;
+  box-shadow:0 2px 8px rgba(28,35,64,.06);
+}
+
+.info-card p{margin-bottom:0.5rem}
+.info-card p:last-child{margin-bottom:0}
+
+/* ── Table ─────────────────────────────────────────── */
+.table-wrap{
+  overflow-x:auto;
+  margin:1.5rem 0;
+  border:1px solid var(--gray-border);
+  border-radius:2px;
+}
+
+table{width:100%;border-collapse:collapse;font-size:15px}
+thead{background:var(--navy);color:var(--cream)}
+th{padding:12px 16px;text-align:left;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:0.3px}
+td{padding:10px 16px;border-bottom:1px solid var(--gray-border)}
+tbody tr:nth-child(even){background:var(--gray-light)}
+.amount{font-family:var(--font-mono);font-weight:500;color:var(--teal)}
+
+/* ── Stats ─────────────────────────────────────────── */
+.stats-row{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:1rem;
+  margin:1.5rem 0;
+}
+
+.stat-box{
+  background:var(--gray-light);
+  border:1px solid var(--gray-border);
+  padding:1.25rem;
+  text-align:center;
+  border-radius:2px;
+}
+
+.stat-value{
+  font-family:var(--font-mono);
+  font-size:1.8rem;
+  font-weight:500;
+  color:var(--teal);
+  display:block;
+}
+
+.stat-label{
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+  color:var(--gray-text);
+  margin-top:4px;
+  display:block;
+}
+
+/* ── Check List ────────────────────────────────────── */
+.check-list{list-style:none;margin:1rem 0 1.5rem}
+.check-list li{padding:0.5rem 0 0.5rem 2rem;position:relative}
+.check-list li::before{
+  content:"";
+  position:absolute;
+  left:0;top:0.75rem;
+  width:8px;height:8px;
+  background:var(--teal);
+  border-radius:50%;
+}
+
+/* ── FAQ ───────────────────────────────────────────── */
+.faq-item{border-bottom:1px solid var(--gray-border);padding:1.25rem 0}
+.faq-q{
+  font-family:var(--font-display);
+  font-size:1.15rem;
+  font-weight:600;
+  color:var(--navy);
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:1rem;
+}
+.faq-q::after{content:"+";font-size:1.4rem;color:var(--teal);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-item.open .faq-a{max-height:500px}
+.faq-a p{padding-top:0.75rem;color:var(--gray-text);font-size:15px}
+
+/* ── Bottom CTA ────────────────────────────────────── */
+.bottom-cta{
+  text-align:center;
+  padding:4rem 1.5rem;
+  background:var(--gray-light);
+  margin-top:3rem;
+}
+.bottom-cta h2{
+  font-family:var(--font-display);
+  font-size:clamp(1.5rem,3vw,2rem);
+  font-weight:600;
+  color:var(--navy);
+  margin-bottom:1rem;
+}
+.bottom-cta p{
+  color:var(--gray-text);
+  margin-bottom:1.5rem;
+  max-width:500px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/* ── Footer ────────────────────────────────────────── */
+.footer{
+  text-align:center;
+  padding:2rem 1.5rem 1rem;
+  font-size:13px;
+  color:#ffffff;
+  background:var(--navy);
+  border-top:1px solid var(--gray-border);
+}
+.footer a{color:var(--teal-light)}
+.footer-legal{
+  max-width:720px;
+  margin:1.5rem auto 0;
+  text-align:left;
+  font-size:11px;
+  line-height:1.6;
+  color:rgba(255,255,255,0.7);
+}
+.footer-legal p{margin-bottom:0.75rem;color:rgba(255,255,255,0.7)}
+.footer-legal strong{color:#ffffff}
+.footer-links{
+  display:flex;
+  gap:1.5rem;
+  justify-content:center;
+  margin-top:1rem;
+  font-size:12px;
+}
+.footer-links a{color:var(--teal-light);text-decoration:none}
+.footer-links a:hover{text-decoration:underline}
+
+@media(max-width:600px){
+  .hero{padding:1.2rem 1.25rem 1.5rem}
+  .cta-primary{width:100%;font-size:19px;padding:18px 24px}
+  .content{padding:2rem 1.25rem}
+  th,td{padding:8px 10px;font-size:13px}
+  .cta-primary{font-size:16px;padding:14px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ Cookie Consent Banner ═══════════ -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>Diese Website verwendet Cookies und Tracking-Technologien (Google AdSense, Google Analytics). Durch Klicken auf „Akzeptieren" stimmst du der Verwendung zu. Weitere Informationen in unserer <a href="/datenschutz">Datenschutzerklärung</a>.</p>
+  <div class="cookie-btns">
+    <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Akzeptieren</button>
+    <button class="cookie-btn cookie-reject" onclick="rejectCookies()">Nur notwendige</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     HERO — Above the fold
+     ════════════════════════════════════════════════════ -->
+<section class="hero">
+  <span class="hero-badge">Neue Grundsicherung 2026</span>
+
+  <h1>Du arbeitest, aber das Geld reicht nicht? Es gibt eine Hilfe vom Staat, die du beantragen kannst</h1>
+
+  <!-- AdSense Top -->
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7982065666403927"
+       data-ad-slot="1135641748"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+
+  <div class="hero-bottom">
+    <div class="hero-amount">
+      Bis zu 2.509 &euro;/Monat für Familien möglich
+    </div>
+
+    <p class="hero-question">Möchtest du wissen, wie viel dir zusteht?</p>
+
+    <a href="/fn-gs-2" class="cta-primary">
+      JETZT BERECHNEN
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+
+    <p class="hero-note">Kostenlos · 2 Minuten · Unverbindlich</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ════════════════════════════════════════════════════
+     CONTENT — Below the fold (SEO / RPM)
+     ════════════════════════════════════════════════════ -->
+<article class="content">
+
+  <h2>Was ist die Neue Grundsicherung?</h2>
+
+  <p>Die Neue Grundsicherung (Grundsicherungsgeld) ist eine staatliche Leistung, die seit dem 1. Juli 2026 das bisherige Bürgergeld ersetzt. Sie sichert den Lebensunterhalt von Menschen, die ihren Bedarf nicht aus eigenem Einkommen oder Vermögen decken können — unabhängig davon, ob sie arbeiten oder nicht.</p>
+
+  <p>Viele Menschen glauben, dass Grundsicherung nur für Arbeitslose ist. Das stimmt nicht. Wenn du arbeitest, aber dein Einkommen nicht zum Leben reicht, hast du ebenfalls Anspruch auf ergänzende Leistungen vom Jobcenter.</p>
+
+  <div class="info-card">
+    <p><strong>So funktioniert es:</strong> Das Jobcenter berechnet deinen „Bedarf" (Regelbedarfe + Miete + Heizung). Wenn dein Einkommen darunter liegt, zahlt der Staat die Differenz. So einfach.</p>
+  </div>
+
+  <!-- In-Content Ad #1 -->
+  <div class="ad-incontent">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7982065666403927"
+         data-ad-slot="1135641748"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+
+  <h2>Kann ich Grundsicherung bekommen, obwohl ich arbeite?</h2>
+
+  <p>Ja. Die Grundsicherung ist vollständig mit Erwerbstätigkeit vereinbar — egal ob angestellt oder selbstständig. Seit der Reform vom Juli 2026 gibt es sogar Freibeträge, die sicherstellen, dass sich Arbeit immer lohnt.</p>
+
+  <h3>Die Freibeträge bei Erwerbstätigkeit</h3>
+
+  <p>Wenn du arbeitest und Grundsicherung beziehst, darfst du einen Teil deines Einkommens behalten:</p>
+
+  <ul class="check-list">
+    <li>Die ersten <strong>100 €/Monat</strong> bleiben komplett anrechnungsfrei (Grundfreibetrag)</li>
+    <li>Von 100 € bis 520 € bleiben <strong>20%</strong> anrechnungsfrei</li>
+    <li>Von 520 € bis 1.000 € bleiben <strong>30%</strong> anrechnungsfrei</li>
+    <li>Von 1.000 € bis 1.200 € (ohne Kinder) bzw. 1.500 € (mit Kindern) bleiben <strong>10%</strong> frei</li>
+  </ul>
+
+  <div class="info-card">
+    <p><strong>Beispiel:</strong> Du verdienst 1.200 €/Monat brutto (ca. 980 € netto). Dein Freibetrag beträgt 348 €. Das Jobcenter rechnet nur 632 € als Einkommen an. Du behältst dein volles Gehalt PLUS die Grundsicherung auf den Differenzbetrag.</p>
+  </div>
+
+
+  <h2>Regelbedarfe der Grundsicherung 2026</h2>
+
+  <p>Der Regelbedarf deckt den täglichen Lebensbedarf (Essen, Kleidung, Strom, Telefon, etc.). Zusätzlich werden Miete und Heizkosten separat übernommen.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Personengruppe</th>
+          <th>Regelbedarf/Monat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Alleinstehende / Alleinerziehende</td><td class="amount">563 &euro;</td></tr>
+        <tr><td>Partner (je Person)</td><td class="amount">506 &euro;</td></tr>
+        <tr><td>Erwachsene (18-24) bei Eltern</td><td class="amount">451 &euro;</td></tr>
+        <tr><td>Jugendliche (14-17 Jahre)</td><td class="amount">471 &euro;</td></tr>
+        <tr><td>Kinder (6-13 Jahre)</td><td class="amount">390 &euro;</td></tr>
+        <tr><td>Kinder (0-5 Jahre)</td><td class="amount">357 &euro;</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Hinzu kommen die tatsächlichen Kosten für Miete und Heizung, sofern sie als „angemessen" gelten. Außerdem werden Kranken- und Pflegeversicherung vollständig vom Jobcenter übernommen.</p>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <span class="stat-value">563 &euro;</span>
+      <span class="stat-label">Alleinstehende</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-value">+Miete</span>
+      <span class="stat-label">Kosten der Unterkunft</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-value">5,5 Mio.</span>
+      <span class="stat-label">Empfänger deutschlandweit</span>
+    </div>
+  </div>
+
+  <!-- In-Content Ad #2 -->
+  <div class="ad-incontent">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7982065666403927"
+         data-ad-slot="1135641748"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+
+  <h2>Mehrbedarf: Zusätzliche Leistungen</h2>
+
+  <p>In bestimmten Situationen hast du Anspruch auf einen Mehrbedarf — einen prozentualen Zuschlag auf den Regelbedarf:</p>
+
+  <ul class="check-list">
+    <li><strong>Alleinerziehend mit Kind unter 7:</strong> +36% (= 202,68 €)</li>
+    <li><strong>Alleinerziehend mit Kind über 7:</strong> +12% (= 67,56 €)</li>
+    <li><strong>Schwangerschaft (ab 13. Woche):</strong> +17% (= 95,71 €)</li>
+    <li><strong>Behinderung (Merkzeichen G/aG):</strong> +17% (= 95,71 €)</li>
+    <li><strong>Kostenaufwändige Ernährung:</strong> individuell (ärztliches Attest nötig)</li>
+  </ul>
+
+
+  <h2>Voraussetzungen für die Grundsicherung</h2>
+
+  <p>Um Grundsicherung beantragen zu können, musst du folgende Voraussetzungen erfüllen:</p>
+
+  <ul class="check-list">
+    <li><strong>Alter:</strong> Zwischen 15 und 67 Jahren (erwerbsfähig)</li>
+    <li><strong>Wohnsitz:</strong> Gewöhnlicher Aufenthalt in Deutschland</li>
+    <li><strong>Erwerbsfähigkeit:</strong> Du musst mindestens 3 Stunden täglich arbeiten können</li>
+    <li><strong>Hilfebedürftigkeit:</strong> Dein Einkommen und Vermögen reichen nicht zum Lebensunterhalt</li>
+    <li><strong>Aufenthaltsrecht:</strong> EU-Bürger mit Freizügigkeit oder Drittstaatsangehörige mit Aufenthaltstitel</li>
+  </ul>
+
+  <h3>Vermögensgrenzen 2026</h3>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Person</th>
+          <th>Vermögensgrenze</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Antragsteller (1. Person)</td><td class="amount">15.000 &euro;</td></tr>
+        <tr><td>Jede weitere Person</td><td class="amount">15.000 &euro;</td></tr>
+        <tr><td>Beispiel: Paar + 2 Kinder</td><td class="amount">60.000 &euro;</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Die selbst bewohnte Immobilie (angemessene Größe), ein angemessenes Fahrzeug und Riester-Rente zählen nicht als Vermögen.</p>
+
+
+  <h2>Bildung und Teilhabe für Kinder</h2>
+
+  <p>Wenn du Kinder hast und Grundsicherung beziehst, gibt es zusätzliche Leistungen:</p>
+
+  <div class="stats-row">
+    <div class="stat-box">
+      <span class="stat-value">195 &euro;</span>
+      <span class="stat-label">Schulbedarf/Jahr</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-value">15 &euro;/Mon.</span>
+      <span class="stat-label">Verein/Musik/Sport</span>
+    </div>
+    <div class="stat-box">
+      <span class="stat-value">Kostenlos</span>
+      <span class="stat-label">Mittagessen Schule</span>
+    </div>
+  </div>
+
+  <div class="info-card">
+    <p><strong>Wichtig:</strong> Der Kinderzuschlag (bis zu 292 €/Kind/Monat) kann eine Alternative zur Grundsicherung sein. Wenn dein Einkommen knapp über der Grenze liegt, lohnt sich eine Prüfung beim Familienkasse.</p>
+  </div>
+
+  <!-- In-Content Ad #3 -->
+  <div class="ad-incontent">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7982065666403927"
+         data-ad-slot="1135641748"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+
+  <h2>Häufig gestellte Fragen</h2>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      Was ist der Unterschied zwischen Bürgergeld und Neuer Grundsicherung?
+    </div>
+    <div class="faq-a">
+      <p>Die Neue Grundsicherung hat das Bürgergeld am 1. Juli 2026 abgelöst. Die Regelbedarfe sind gleich geblieben (563 € für Alleinstehende), aber die Vermögensgrenzen wurden verschärft (15.000 € statt 40.000 € in der Karenzzeit), das Weiterbildungsgeld gestrichen und die Sanktionen verschärft.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      Wie lange dauert die Bearbeitung des Antrags?
+    </div>
+    <div class="faq-a">
+      <p>Die gesetzliche Frist beträgt 6 Monate. In der Praxis dauert die Bearbeitung meist 2 bis 6 Wochen. Bei Eilbedürftigkeit kann eine vorläufige Bewilligung erfolgen.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      Bekomme ich Grundsicherung, wenn mein Partner arbeitet?
+    </div>
+    <div class="faq-a">
+      <p>Das Einkommen deines Partners wird berücksichtigt. Wenn das gemeinsame Einkommen unter dem Gesamtbedarf eurer Bedarfsgemeinschaft liegt, habt ihr trotzdem Anspruch auf ergänzende Leistungen.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      Muss ich eine Arbeit annehmen, wenn ich Grundsicherung beziehe?
+    </div>
+    <div class="faq-a">
+      <p>Ja, grundsätzlich bist du verpflichtet, zumutbare Arbeit anzunehmen. Mit der Neuen Grundsicherung gilt ab Tag 1 ein verpflichtender Kooperationsplan mit dem Jobcenter. Bei Verstößen können Sanktionen von bis zu 30% des Regelbedarfs verhängt werden.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      Wird die Miete komplett übernommen?
+    </div>
+    <div class="faq-a">
+      <p>Die tatsächlichen Miet- und Heizkosten werden übernommen, sofern sie „angemessen" sind. Was als angemessen gilt, variiert je nach Stadt und Haushaltsgröße. In München sind die Grenzen höher als in ländlichen Gebieten. Liegt deine Miete darüber, wirst du aufgefordert, die Kosten zu senken (z.B. Untervermietung oder Umzug).</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      Kann ich als EU-Bürger Grundsicherung beantragen?
+    </div>
+    <div class="faq-a">
+      <p>Ja, EU-Bürger mit Aufenthaltsrecht nach dem Freizügigkeitsgesetz können Grundsicherung beantragen. In den ersten 3 Monaten und bei reiner Arbeitssuche ist der Anspruch eingeschränkt. Sobald du arbeitest (auch Minijob), hast du vollen Anspruch.</p>
+    </div>
+  </div>
+
+</article>
+
+
+<!-- ── Bottom CTA ─────────────────────────────────── -->
+<section class="bottom-cta">
+  <h2>Finde heraus, ob du Anspruch hast</h2>
+  <p>In nur 2 Minuten berechnen wir kostenlos, wie viel Grundsicherung dir zusteht.</p>
+  <a href="/fn-gs-2" class="cta-primary" style="max-width:480px;margin:0 auto;">
+    JETZT TEST MACHEN
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</section>
+
+<footer class="footer">
+  <p>Ecomax Deutschland &copy; 2026</p>
+  <div class="footer-links">
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutzerklärung</a>
+  </div>
+  <div class="footer-legal">
+    <p><strong>Rechtlicher Hinweis:</strong> Ecomax ist ein unabhängiges Informationsportal. Wir sind keine Behörde und nicht mit dem Jobcenter, der Bundesagentur für Arbeit, dem BMAS oder einer anderen öffentlichen Stelle verbunden oder beauftragt. Wir bearbeiten, vermitteln oder stellen keine Anträge auf Sozialleistungen.</p>
+    <p>Die auf dieser Website veröffentlichten Informationen dienen ausschließlich der allgemeinen Information und Orientierung. Sie stellen keine Rechts-, Steuer- oder Finanzberatung dar. Die dargestellten Beträge, Voraussetzungen und Berechnungen basieren auf der aktuellen Gesetzeslage (SGB II, in der Fassung ab 01.07.2026) und können sich jederzeit ändern. Für verbindliche Auskünfte wende dich an dein zuständiges Jobcenter oder die Beratungshotline: <strong>0800 4 555500</strong> (kostenlos).</p>
+    <p>Unsere Rechner und Simulationen liefern unverbindliche Schätzungen. Das tatsächliche Ergebnis hängt von der individuellen Prüfung durch das Jobcenter ab.</p>
+    <p>Diese Website verwendet Cookies und Tracking-Technologien. Mehr dazu in unserer <a href="/datenschutz">Datenschutzerklärung</a>.</p>
+  </div>
+</footer>
+
+<!-- AdSense -->
+<script>
+// Cookie consent logic
+(function(){
+  try {
+    var consent = localStorage.getItem('ecmx_de_cookie_consent');
+    if (!consent) {
+      document.getElementById('cookieBanner').classList.add('visible');
+    } else if (consent === 'accepted') {
+      loadAdSense();
+    }
+  } catch(e) {
+    document.getElementById('cookieBanner').classList.add('visible');
+  }
+})();
+
+function acceptCookies(){
+  try { localStorage.setItem('ecmx_de_cookie_consent', 'accepted'); } catch(e){}
+  document.getElementById('cookieBanner').classList.remove('visible');
+  loadAdSense();
+}
+
+function rejectCookies(){
+  try { localStorage.setItem('ecmx_de_cookie_consent', 'rejected'); } catch(e){}
+  document.getElementById('cookieBanner').classList.remove('visible');
+}
+
+function loadAdSense(){
+  var s = document.createElement('script');
+  s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7982065666403927';
+  s.async = true;
+  s.crossOrigin = 'anonymous';
+  document.head.appendChild(s);
+  s.onload = function(){
+    document.querySelectorAll('.adsbygoogle').forEach(function(){
+      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e){}
+    });
+  };
+}
+</script>
+
+</body>
+</html>

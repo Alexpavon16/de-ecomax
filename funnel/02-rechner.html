@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grundsicherung-Rechner 2026 — Berechne deinen Anspruch | Ecomax</title>
+<meta name="description" content="Berechne in 2 Minuten, ob du Anspruch auf Grundsicherung hast und wie viel dir monatlich zusteht. Kostenloser Rechner 2026.">
+<link rel="canonical" href="https://de.ecomax.site/fn-gs-2">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1058135810276836');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1058135810276836&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lora:wght@400;500;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --navy:#1C2340;
+  --teal:#2B6B5E;
+  --teal-light:#3A8B7A;
+  --cream:#FEFDFB;
+  --gray-light:#F5F4F1;
+  --gray-text:#5F6B7A;
+  --gray-border:#D4D1CB;
+  --bronze:#8B7355;
+  --red:#B94A4A;
+  --green:#2B6B5E;
+  --font-display:'Cormorant Garamond',Georgia,serif;
+  --font-body:'Lora','Times New Roman',serif;
+  --font-mono:'Source Code Pro','Courier New',monospace;
+}
+
+body{
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.65;
+  color:var(--navy);
+  background:var(--cream);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  padding-bottom:110px;
+}
+
+/* ── Layout ────────────────────────────────────────── */
+.quiz-container{
+  max-width:640px;
+  margin:0 auto;
+  padding:2rem 1.5rem 3rem;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+/* ── Header ────────────────────────────────────────── */
+.quiz-header{text-align:center;margin-bottom:0.5rem}
+.quiz-logo{
+  font-family:var(--font-display);
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--navy);
+  text-decoration:none;
+  letter-spacing:-0.3px;
+}
+
+/* ── Progress ──────────────────────────────────────── */
+.progress-wrap{margin:0.5rem 0 1.2rem}
+.progress-info{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.progress-step{font-size:13px;color:var(--gray-text);font-weight:500}
+.progress-pct{font-family:var(--font-mono);font-size:13px;color:var(--teal)}
+.progress-bar{height:4px;background:var(--gray-border);border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:var(--teal);border-radius:2px;transition:width .4s ease;width:0%}
+
+/* ── Step ──────────────────────────────────────────── */
+.step{display:none;flex:1;flex-direction:column}
+.step.active{display:flex}
+.step-question{
+  font-family:var(--font-display);
+  font-size:clamp(1.5rem,4vw,2rem);
+  font-weight:600;
+  color:var(--navy);
+  text-align:center;
+  margin-bottom:0.5rem;
+  letter-spacing:-0.2px;
+}
+.step-desc{text-align:center;color:var(--gray-text);font-size:15px;margin-bottom:2rem}
+
+/* ── Options ───────────────────────────────────────── */
+.options{display:flex;flex-direction:column;gap:12px;margin-bottom:2rem}
+.option{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 20px;
+  background:var(--gray-light);
+  border:2px solid var(--gray-border);
+  border-radius:2px;
+  cursor:pointer;
+  transition:border-color .2s,background .2s;
+  font-size:16px;
+}
+.option:hover{border-color:var(--teal);background:rgba(43,107,94,.05)}
+.option.selected{border-color:var(--teal);background:rgba(43,107,94,.08)}
+.option-radio{
+  width:20px;height:20px;
+  border:2px solid var(--gray-border);
+  border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color .2s;
+}
+.option.selected .option-radio{border-color:var(--teal)}
+.option.selected .option-radio::after{content:"";width:10px;height:10px;background:var(--teal);border-radius:50%}
+.option-text{flex:1}
+.option-text strong{display:block;font-weight:600}
+.option-text span{font-size:13px;color:var(--gray-text)}
+
+/* ── Slider ────────────────────────────────────────── */
+.slider-value{font-family:var(--font-mono);font-size:2rem;font-weight:500;color:var(--teal);text-align:center;margin-bottom:1rem}
+.slider-wrap{padding:0 0.5rem}
+input[type="range"]{-webkit-appearance:none;width:100%;height:6px;background:var(--gray-border);border-radius:3px;outline:none}
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;background:var(--teal);border-radius:50%;cursor:pointer;border:3px solid var(--cream);box-shadow:0 2px 6px rgba(0,0,0,.15)}
+input[type="range"]::-moz-range-thumb{width:24px;height:24px;background:var(--teal);border-radius:50%;cursor:pointer;border:3px solid var(--cream);box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.slider-labels{display:flex;justify-content:space-between;font-size:12px;color:var(--gray-text);margin-top:8px;font-family:var(--font-mono)}
+
+/* ── Buttons ───────────────────────────────────────── */
+.btn-row{display:flex;gap:12px;margin-top:auto;padding-top:2rem}
+.btn{flex:1;padding:14px 24px;font-family:var(--font-body);font-size:16px;font-weight:500;border:2px solid var(--gray-border);border-radius:2px;cursor:pointer;transition:all .2s;text-align:center}
+.btn-back{background:transparent;color:var(--navy)}
+.btn-back:hover{background:var(--gray-light)}
+.btn-next{background:var(--navy);color:var(--cream);border-color:var(--navy)}
+.btn-next:hover{background:var(--teal);border-color:var(--teal)}
+.btn-next:disabled{opacity:0.4;cursor:not-allowed}
+.btn-next:disabled:hover{background:var(--navy);border-color:var(--navy)}
+
+/* ── Input ─────────────────────────────────────────── */
+.input-group{margin-bottom:1.5rem}
+.input-group label{display:block;font-size:14px;font-weight:500;color:var(--navy);margin-bottom:6px}
+.input-group input,.input-group select{width:100%;padding:14px 16px;font-family:var(--font-body);font-size:16px;border:2px solid var(--gray-border);border-radius:2px;background:var(--gray-light);color:var(--navy);outline:none;transition:border-color .2s}
+.input-group input:focus,.input-group select:focus{border-color:var(--teal)}
+
+/* ── Email form ────────────────────────────────────── */
+.email-form{background:var(--gray-light);border:1px solid var(--gray-border);border-left:3px solid var(--teal);padding:2rem;border-radius:2px;margin-bottom:1.5rem}
+.email-form .input-group{margin-bottom:1rem}
+.email-note{font-size:13px;color:var(--gray-text);text-align:center;margin-top:1rem}
+
+/* ── Alert ─────────────────────────────────────────── */
+.alert{display:none;padding:14px 18px;border-radius:2px;font-size:14px;margin:1rem 0}
+.alert.visible{display:block}
+.alert-warn{background:#FFF3E0;border:1px solid #E6A23C;color:#8B6914}
+
+/* ── Sticky bottom ad ──────────────────────────────── */
+.ad-bottom-bar{
+  position:fixed;bottom:0;left:0;right:0;z-index:100;
+  background:var(--cream);border-top:1px solid var(--gray-border);
+  box-shadow:0 -2px 10px rgba(0,0,0,.06);text-align:center;
+  padding:6px 0 8px;transition:transform .3s ease;
+}
+.ad-bottom-bar.minimized{transform:translateY(calc(100% - 28px))}
+.ad-bottom-bar .ad-top-row{display:flex;justify-content:space-between;align-items:center;padding:0 12px;margin-bottom:2px}
+.ad-bottom-bar .ad-label{font-size:9px;color:var(--gray-text);text-transform:uppercase;letter-spacing:0.5px}
+.ad-bottom-bar .ad-toggle{background:none;border:1px solid var(--gray-border);border-radius:50%;width:22px;height:22px;font-size:14px;line-height:20px;color:var(--gray-text);cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center;transition:transform .3s ease}
+.ad-bottom-bar .ad-toggle:hover{background:var(--gray-light);color:var(--navy)}
+.ad-bottom-bar.minimized .ad-toggle{transform:rotate(180deg)}
+.ad-bottom-bar .adsbygoogle{display:block;width:100%;min-height:50px;max-height:90px}
+
+/* ── Footer ────────────────────────────────────────── */
+.quiz-footer{text-align:center;padding:2rem 0 1rem;font-size:12px;color:var(--gray-text);border-top:1px solid var(--gray-border);margin-top:2rem}
+.quiz-footer a{color:var(--teal)}
+
+@media(max-width:480px){
+  .quiz-container{padding:1.5rem 1rem 2rem}
+  .option{padding:14px 16px}
+}
+</style>
+</head>
+<body>
+
+<div class="quiz-container">
+
+  <!-- Header -->
+  <div class="quiz-header">
+    <a href="/fn-gs-1" class="quiz-logo">ECOMAX</a>
+  </div>
+
+  <!-- Progress -->
+  <div class="progress-wrap">
+    <div class="progress-info">
+      <span class="progress-step" id="stepLabel">Frage 1 von 7</span>
+      <span class="progress-pct" id="stepPct">14%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 1: Alter ═══ -->
+  <div class="step active" id="step1">
+    <h2 class="step-question">Wie alt bist du?</h2>
+    <p class="step-desc">Grundsicherung gibt es für Personen zwischen 15 und 67 Jahren.</p>
+    <div class="options" data-field="alter">
+      <div class="option" data-value="unter-15"><div class="option-radio"></div><div class="option-text"><strong>Unter 15 Jahre</strong></div></div>
+      <div class="option" data-value="15-24"><div class="option-radio"></div><div class="option-text"><strong>15 - 24 Jahre</strong></div></div>
+      <div class="option" data-value="25-49"><div class="option-radio"></div><div class="option-text"><strong>25 - 49 Jahre</strong></div></div>
+      <div class="option" data-value="50-67"><div class="option-radio"></div><div class="option-text"><strong>50 - 67 Jahre</strong></div></div>
+      <div class="option" data-value="ueber-67"><div class="option-radio"></div><div class="option-text"><strong>Über 67 Jahre</strong></div></div>
+    </div>
+    <div class="alert alert-warn" id="alertAlter">
+      Grundsicherung (SGB II) gilt für Personen zwischen 15 und 67 Jahren. Für Ältere gibt es die Grundsicherung im Alter (SGB XII) — wende dich an das Sozialamt deiner Stadt.
+    </div>
+  </div>
+
+  <!-- ═══ STEP 2: Wohnsitz ═══ -->
+  <div class="step" id="step2">
+    <h2 class="step-question">Wohnst du in Deutschland?</h2>
+    <p class="step-desc">Ein gewöhnlicher Aufenthalt in Deutschland ist Voraussetzung.</p>
+    <div class="options" data-field="wohnsitz">
+      <div class="option" data-value="ja"><div class="option-radio"></div><div class="option-text"><strong>Ja, ich lebe in Deutschland</strong></div></div>
+      <div class="option" data-value="nein"><div class="option-radio"></div><div class="option-text"><strong>Nein, ich lebe im Ausland</strong></div></div>
+    </div>
+    <div class="alert alert-warn" id="alertWohnsitz">
+      Grundsicherung setzt einen gewöhnlichen Aufenthalt in Deutschland voraus. Wenn du planst, nach Deutschland zu ziehen, kannst du den Antrag erst nach deiner Anmeldung stellen.
+    </div>
+  </div>
+
+  <!-- ═══ STEP 3: Erwerbstätigkeit ═══ -->
+  <div class="step" id="step3">
+    <h2 class="step-question">Was ist deine aktuelle Situation?</h2>
+    <p class="step-desc">Grundsicherung ist mit jeder Erwerbssituation vereinbar.</p>
+    <div class="options" data-field="erwerb">
+      <div class="option" data-value="angestellt"><div class="option-radio"></div><div class="option-text"><strong>Angestellt</strong><span>Teilzeit oder Vollzeit mit Arbeitsvertrag</span></div></div>
+      <div class="option" data-value="selbststaendig"><div class="option-radio"></div><div class="option-text"><strong>Selbstständig</strong><span>Freiberuflich oder Gewerbe</span></div></div>
+      <div class="option" data-value="minijob"><div class="option-radio"></div><div class="option-text"><strong>Minijob (520 €)</strong><span>Geringfügige Beschäftigung</span></div></div>
+      <div class="option" data-value="arbeitslos"><div class="option-radio"></div><div class="option-text"><strong>Arbeitslos</strong><span>Mit oder ohne ALG I</span></div></div>
+      <div class="option" data-value="ohne"><div class="option-radio"></div><div class="option-text"><strong>Ohne Beschäftigung</strong><span>Kein Einkommen</span></div></div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 4: Nettoeinkommen ═══ -->
+  <div class="step" id="step4">
+    <h2 class="step-question">Wie hoch ist dein Nettoeinkommen?</h2>
+    <p class="step-desc">Dein monatliches Nettoeinkommen (was auf dem Konto ankommt). Bei 0 Einkommen den Regler auf 0 lassen.</p>
+    <div class="slider-value" id="incomeDisplay">0 &euro;/Monat</div>
+    <div class="slider-wrap">
+      <input type="range" id="incomeSlider" min="0" max="3000" step="50" value="0">
+      <div class="slider-labels"><span>0 €</span><span>1.500 €</span><span>3.000 €</span></div>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-back" onclick="goStep(3)">Zurück</button>
+      <button class="btn btn-next" id="btn4" onclick="goStep(5)">Weiter</button>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 5: Haushalt ═══ -->
+  <div class="step" id="step5">
+    <h2 class="step-question">Mit wem lebst du zusammen?</h2>
+    <p class="step-desc">Deine Bedarfsgemeinschaft: Erwachsene im selben Haushalt.</p>
+    <div class="options" data-field="haushalt">
+      <div class="option" data-value="allein"><div class="option-radio"></div><div class="option-text"><strong>Ich lebe allein</strong></div></div>
+      <div class="option" data-value="partner"><div class="option-radio"></div><div class="option-text"><strong>Mit Partner/in</strong><span>Ehe, Lebenspartnerschaft oder eheähnlich</span></div></div>
+      <div class="option" data-value="eltern"><div class="option-radio"></div><div class="option-text"><strong>Bei meinen Eltern</strong><span>Unter 25 Jahre</span></div></div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 6: Kinder ═══ -->
+  <div class="step" id="step6">
+    <h2 class="step-question">Hast du Kinder unter 18?</h2>
+    <p class="step-desc">Kinder im Haushalt erhöhen deinen Anspruch deutlich.</p>
+    <div class="options" data-field="kinder">
+      <div class="option" data-value="0"><div class="option-radio"></div><div class="option-text"><strong>Keine Kinder</strong></div></div>
+      <div class="option" data-value="1"><div class="option-radio"></div><div class="option-text"><strong>1 Kind</strong></div></div>
+      <div class="option" data-value="2"><div class="option-radio"></div><div class="option-text"><strong>2 Kinder</strong></div></div>
+      <div class="option" data-value="3"><div class="option-radio"></div><div class="option-text"><strong>3 oder mehr Kinder</strong></div></div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 7: Besondere Situation ═══ -->
+  <div class="step" id="step7">
+    <h2 class="step-question">Besondere Umstände?</h2>
+    <p class="step-desc">Diese Situationen erhöhen deinen Anspruch (Mehrbedarf).</p>
+    <div class="options" data-field="mehrbedarf">
+      <div class="option" data-value="keine"><div class="option-radio"></div><div class="option-text"><strong>Keine der folgenden</strong></div></div>
+      <div class="option" data-value="alleinerziehend"><div class="option-radio"></div><div class="option-text"><strong>Alleinerziehend</strong><span>Allein mit Kind(ern) im Haushalt</span></div></div>
+      <div class="option" data-value="schwanger"><div class="option-radio"></div><div class="option-text"><strong>Schwanger (ab 13. Woche)</strong><span>+17% Mehrbedarf</span></div></div>
+      <div class="option" data-value="behindert"><div class="option-radio"></div><div class="option-text"><strong>Schwerbehinderung (Merkzeichen G/aG)</strong><span>+17% Mehrbedarf</span></div></div>
+    </div>
+  </div>
+
+  <!-- ═══ STEP 8: E-Mail + Ergebnis ═══ -->
+  <div class="step" id="step8">
+    <h2 class="step-question">Dein Ergebnis ist fertig</h2>
+    <p class="step-desc">Hinterlasse deine E-Mail, um dein detailliertes Ergebnis zu erhalten und über neue Hilfen informiert zu werden.</p>
+    <div class="email-form" id="emailForm">
+      <div class="input-group">
+        <label for="userName">Vorname</label>
+        <input type="text" id="userName" placeholder="Dein Vorname" autocomplete="given-name">
+      </div>
+      <div class="input-group">
+        <label for="userEmail">E-Mail</label>
+        <input type="email" id="userEmail" placeholder="deine@email.de" autocomplete="email">
+      </div>
+      <button class="btn btn-next" style="width:100%" id="btnEmail" onclick="submitEmail()">
+        MEIN ERGEBNIS ANZEIGEN
+      </button>
+      <p class="email-note">Kein Spam. Nur Infos über Leistungen, die dir zustehen. Jederzeit abbestellbar.</p>
+    </div>
+    <div class="alert alert-warn" id="alertEmail" style="display:none">
+      Bitte gib eine gültige E-Mail-Adresse ein, um dein Ergebnis zu sehen.
+    </div>
+  </div>
+
+  <div class="quiz-footer">
+    <p>Ecomax Deutschland &copy; 2026 · <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></p>
+    <div style="text-align:left;font-size:10px;line-height:1.5;color:#9a9a9a;margin-top:1rem">
+      <p style="margin-bottom:6px"><strong>Rechtlicher Hinweis:</strong> Ecomax ist ein unabhängiges Informationsportal. Wir sind keine Behörde und nicht mit dem Jobcenter, der Bundesagentur für Arbeit oder einer anderen öffentlichen Stelle verbunden.</p>
+      <p style="margin-bottom:6px">Dieser Rechner liefert unverbindliche Schätzungen basierend auf der aktuellen Gesetzeslage (SGB II, Fassung ab 01.07.2026). Das tatsächliche Ergebnis hängt von der Prüfung durch dein Jobcenter ab.</p>
+      <p style="margin-bottom:6px">Mit der Eingabe deiner E-Mail stimmst du zu, Informationen über Sozialleistungen zu erhalten. Du kannst dich jederzeit abmelden. Deine Daten werden gemäß DSGVO verarbeitet.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ Sticky Bottom Ad ═══ -->
+<div class="ad-bottom-bar" id="adBottomBar">
+  <div class="ad-top-row">
+    <span class="ad-label">Werbung</span>
+    <button class="ad-toggle" onclick="toggleAd()" aria-label="Anzeige minimieren">&#9662;</button>
+  </div>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-7982065666403927"
+       data-ad-slot="1135641748"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════
+   Grundsicherung Calculator Logic
+   ══════════════════════════════════════════════════════ */
+
+var answers = {
+  alter: null,
+  wohnsitz: null,
+  erwerb: null,
+  einkommen: 0,
+  haushalt: null,
+  kinder: null,
+  mehrbedarf: null
+};
+
+var currentStep = 1;
+var totalSteps = 8;
+
+// ── Regelbedarfe 2026 ─────────────────────────────────
+var REGELBEDARF = {
+  allein: 563,       // Stufe 1
+  partner: 506,      // Stufe 2 (je Person)
+  jung_eltern: 451,  // Stufe 3 (18-24 bei Eltern)
+  jugend: 471,       // Stufe 4 (14-17)
+  kind_6_13: 390,    // Stufe 5
+  kind_0_5: 357      // Stufe 6
+};
+
+// Average rent assumptions by household size (warm)
+var MIETE = {
+  1: 450,
+  2: 550,
+  3: 650,
+  4: 750,
+  5: 850
+};
+
+// Auto-advance map
+var autoAdvanceMap = { 1:2, 2:3, 3:4, 5:6, 6:7, 7:8 };
+
+// ── Option click handler ──────────────────────────────
+document.querySelectorAll('.options').forEach(function(group) {
+  var field = group.dataset.field;
+  group.querySelectorAll('.option').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      group.querySelectorAll('.option').forEach(function(o) { o.classList.remove('selected'); });
+      opt.classList.add('selected');
+      answers[field] = opt.dataset.value;
+
+      var btn = document.getElementById('btn' + currentStep);
+      if (btn) btn.disabled = false;
+
+      // Special alerts
+      if (field === 'alter') {
+        var alert = document.getElementById('alertAlter');
+        if (opt.dataset.value === 'unter-15' || opt.dataset.value === 'ueber-67') {
+          alert.classList.add('visible');
+        } else {
+          alert.classList.remove('visible');
+        }
+      }
+
+      if (field === 'wohnsitz') {
+        var alert = document.getElementById('alertWohnsitz');
+        if (opt.dataset.value === 'nein') {
+          alert.classList.add('visible');
+        } else {
+          alert.classList.remove('visible');
+        }
+      }
+
+      var nextStep = autoAdvanceMap[currentStep];
+      if (nextStep) {
+        setTimeout(function() { goStep(nextStep); }, 400);
+      }
+    });
+  });
+});
+
+// ── Income slider ─────────────────────────────────────
+var slider = document.getElementById('incomeSlider');
+var display = document.getElementById('incomeDisplay');
+slider.addEventListener('input', function() {
+  var val = parseInt(slider.value);
+  answers.einkommen = val;
+  display.innerHTML = val.toLocaleString('de-DE') + ' &euro;/Monat';
+});
+
+// ── Navigation ────────────────────────────────────────
+function goStep(step) {
+  if (step > currentStep) {
+    if (currentStep === 1 && !answers.alter) return;
+    if (currentStep === 2 && !answers.wohnsitz) return;
+    if (currentStep === 3 && !answers.erwerb) return;
+    if (currentStep === 5 && !answers.haushalt) return;
+    if (currentStep === 6 && answers.kinder === null) return;
+    if (currentStep === 7 && !answers.mehrbedarf) return;
+  }
+
+  document.getElementById('step' + currentStep).classList.remove('active');
+  currentStep = step;
+  document.getElementById('step' + currentStep).classList.add('active');
+
+  var progress = Math.round((currentStep / totalSteps) * 100);
+  document.getElementById('progressFill').style.width = progress + '%';
+  document.getElementById('stepPct').textContent = progress + '%';
+
+  if (currentStep < 8) {
+    document.getElementById('stepLabel').textContent = 'Frage ' + currentStep + ' von 7';
+  } else {
+    document.getElementById('stepLabel').textContent = 'Ergebnis';
+  }
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Email submit ──────────────────────────────────────
+function submitEmail() {
+  var name = document.getElementById('userName').value.trim();
+  var email = document.getElementById('userEmail').value.trim();
+
+  if (!email || !email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+    document.getElementById('alertEmail').style.display = 'block';
+    return;
+  }
+
+  document.getElementById('alertEmail').style.display = 'none';
+
+  // Send to MailerLite via API proxy
+  var apiUrl = 'https://ecomax-api.vercel.app/api/subscribe';
+  var payload = {
+    email: email,
+    group_id: '197314934874310225'
+  };
+  if (name) payload.name = name;
+
+  try {
+    fetch(apiUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      keepalive: true,
+      mode: 'cors'
+    }).catch(function() {});
+  } catch(e) {
+    if (navigator.sendBeacon) {
+      var blob = new Blob([JSON.stringify(payload)], { type: 'application/json' });
+      navigator.sendBeacon(apiUrl, blob);
+    }
+  }
+
+  // Meta Pixel Lead event
+  if (typeof fbq === 'function') {
+    fbq('track', 'Lead', { content_name: 'rechner-grundsicherung' });
+  }
+
+  // Calculate and save result
+  var result = calculateGrundsicherung();
+  try {
+    localStorage.setItem('ecmx_gs_result', JSON.stringify({
+      answers: answers,
+      result: result,
+      name: name,
+      email: email,
+      timestamp: new Date().toISOString()
+    }));
+  } catch(e) {}
+
+  window.location.href = '/fn-gs-3';
+}
+
+// ── Grundsicherung Calculation ────────────────────────
+function calculateGrundsicherung() {
+  var kinder = Math.min(parseInt(answers.kinder) || 0, 5);
+  var einkommen = answers.einkommen;
+
+  // 1. Regelbedarf berechnen
+  var regelbedarfTotal = 0;
+  var personenAnzahl = 1;
+
+  if (answers.haushalt === 'allein') {
+    regelbedarfTotal = REGELBEDARF.allein;
+    personenAnzahl = 1;
+  } else if (answers.haushalt === 'partner') {
+    regelbedarfTotal = REGELBEDARF.partner * 2;
+    personenAnzahl = 2;
+  } else if (answers.haushalt === 'eltern') {
+    regelbedarfTotal = REGELBEDARF.jung_eltern;
+    personenAnzahl = 1; // Only own need
+  }
+
+  // Kinder (average age assumption)
+  var kinderBedarf = 0;
+  for (var i = 0; i < kinder; i++) {
+    kinderBedarf += REGELBEDARF.kind_6_13; // Average
+    personenAnzahl++;
+  }
+  regelbedarfTotal += kinderBedarf;
+
+  // 2. Mehrbedarf
+  var mehrbedarfBetrag = 0;
+  var eigenRegelbedarf = (answers.haushalt === 'eltern') ? REGELBEDARF.jung_eltern :
+                         (answers.haushalt === 'partner') ? REGELBEDARF.partner : REGELBEDARF.allein;
+
+  if (answers.mehrbedarf === 'alleinerziehend' && kinder > 0) {
+    mehrbedarfBetrag = eigenRegelbedarf * 0.36;
+  } else if (answers.mehrbedarf === 'schwanger') {
+    mehrbedarfBetrag = eigenRegelbedarf * 0.17;
+  } else if (answers.mehrbedarf === 'behindert') {
+    mehrbedarfBetrag = eigenRegelbedarf * 0.17;
+  }
+
+  // 3. Kosten der Unterkunft (estimate)
+  var miete = MIETE[Math.min(personenAnzahl, 5)] || 450;
+
+  // 4. Gesamtbedarf
+  var gesamtbedarf = regelbedarfTotal + mehrbedarfBetrag + miete;
+
+  // 5. Freibeträge berechnen (if working)
+  var freibetrag = 0;
+  if (einkommen > 0) {
+    // Grundfreibetrag
+    freibetrag += Math.min(einkommen, 100);
+    if (einkommen > 100) {
+      freibetrag += Math.min(einkommen - 100, 420) * 0.20;
+    }
+    if (einkommen > 520) {
+      freibetrag += Math.min(einkommen - 520, 480) * 0.30;
+    }
+    if (einkommen > 1000) {
+      var obergrenze = kinder > 0 ? 1500 : 1200;
+      freibetrag += Math.min(einkommen - 1000, obergrenze - 1000) * 0.10;
+    }
+  }
+
+  var anrechenbares = Math.max(einkommen - freibetrag, 0);
+
+  // 6. Anspruch
+  var anspruch = Math.max(gesamtbedarf - anrechenbares, 0);
+
+  // 7. Eligibility
+  var alterValide = (answers.alter !== 'unter-15' && answers.alter !== 'ueber-67');
+  var wohnsitzValide = (answers.wohnsitz === 'ja');
+
+  // 8. Vermögensgrenze
+  var vermoegensgrenze = personenAnzahl * 15000;
+
+  return {
+    eligible: anspruch > 0 && alterValide && wohnsitzValide,
+    alterValide: alterValide,
+    wohnsitzValide: wohnsitzValide,
+    regelbedarfTotal: Math.round(regelbedarfTotal * 100) / 100,
+    mehrbedarfBetrag: Math.round(mehrbedarfBetrag * 100) / 100,
+    miete: miete,
+    gesamtbedarf: Math.round(gesamtbedarf * 100) / 100,
+    einkommen: einkommen,
+    freibetrag: Math.round(freibetrag * 100) / 100,
+    anrechenbares: Math.round(anrechenbares * 100) / 100,
+    anspruch: Math.round(anspruch * 100) / 100,
+    anspruchJahr: Math.round(anspruch * 12 * 100) / 100,
+    vermoegensgrenze: vermoegensgrenze,
+    personenAnzahl: personenAnzahl,
+    kinder: kinder,
+    haushalt: answers.haushalt,
+    mehrbedarf: answers.mehrbedarf,
+    erwerb: answers.erwerb
+  };
+}
+
+// ── Ad toggle ─────────────────────────────────────────
+function toggleAd() {
+  var bar = document.getElementById('adBottomBar');
+  var m = bar.classList.toggle('minimized');
+  document.body.style.paddingBottom = m ? '30px' : '110px';
+}
+
+// ── Load AdSense after cookie consent ─────────────────
+(function(){
+  try {
+    var consent = localStorage.getItem('ecmx_de_cookie_consent');
+    if (consent === 'accepted') {
+      var s = document.createElement('script');
+      s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7982065666403927';
+      s.async = true; s.crossOrigin = 'anonymous';
+      document.head.appendChild(s);
+      s.onload = function(){
+        document.querySelectorAll('.adsbygoogle').forEach(function(){
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e){}
+        });
+      };
+    }
+  } catch(e){}
+})();
+</script>
+</body>
+</html>
