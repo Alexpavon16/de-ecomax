@@ -13,7 +13,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-501QLQMB5Q"></script>
 <script>
 window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag("consent","default",{analytics_storage:"denied",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",wait_for_update:500});
+gtag("consent","default",{analytics_storage:"granted",ad_storage:"granted",ad_user_data:"granted",ad_personalization:"granted"});
 gtag("js",new Date());gtag("config","G-501QLQMB5Q");
 </script>
 </head>
@@ -30,15 +30,6 @@ gtag("js",new Date());gtag("config","G-501QLQMB5Q");
     <a href="/fn-gs-2" class="nav-cta">Rechner starten</a>
   </div>
 </nav>
-
-<div class="cookie-banner" id="cookieBanner">
-  <p>Diese Website verwendet Cookies und Tracking-Technologien. <a href="/datenschutz">Datenschutzerklärung</a></p>
-  <div class="cookie-btns">
-    <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Akzeptieren</button>
-    <button class="cookie-btn cookie-reject" onclick="rejectCookies()">Nur notwendige</button>
-  </div>
-</div>
-
 <article class="article">
   <p class="meta">Aktualisiert: September 2026 · Lesezeit: 6 Min.</p>
 
@@ -210,11 +201,10 @@ gtag("js",new Date());gtag("config","G-501QLQMB5Q");
 </footer>
 
 <script>
-(function(){try{var c=localStorage.getItem('ecmx_de_cookie_consent');if(!c)document.getElementById('cookieBanner').classList.add('visible');else if(c==='accepted'){loadAdSense();loadGA4()}}catch(e){document.getElementById('cookieBanner').classList.add('visible')}})();
-function acceptCookies(){try{localStorage.setItem('ecmx_de_cookie_consent','accepted')}catch(e){}document.getElementById('cookieBanner').classList.remove('visible');loadAdSense();loadGA4()}
-function rejectCookies(){try{localStorage.setItem('ecmx_de_cookie_consent','rejected')}catch(e){}document.getElementById('cookieBanner').classList.remove('visible')}
-function loadGA4(){if(window.gtag){gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'})}}
-function loadAdSense(){var s=document.createElement('script');s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7982065666403927';s.async=true;s.crossOrigin='anonymous';document.head.appendChild(s);s.onload=function(){document.querySelectorAll('.adsbygoogle').forEach(function(){try{(adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}})}}
+(function(){
+  var s=document.createElement('script');s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7982065666403927';s.async=true;s.crossOrigin='anonymous';document.head.appendChild(s);
+  s.onload=function(){document.querySelectorAll('.adsbygoogle').forEach(function(){try{(adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}});};
+})();
 </script>
 </body>
 </html>
