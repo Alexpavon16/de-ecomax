@@ -184,6 +184,12 @@ input[type="range"]::-moz-range-thumb{width:24px;height:24px;background:var(--te
   .option{padding:14px 16px}
 }
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-501QLQMB5Q"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag("consent","default",{analytics_storage:"denied",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",wait_for_update:500});
+gtag("js",new Date());gtag("config","G-501QLQMB5Q");
+</script>
 </head>
 <body>
 
@@ -621,11 +627,12 @@ function toggleAd() {
   document.body.style.paddingBottom = m ? '30px' : '110px';
 }
 
-// ── Load AdSense + GA4 after cookie consent ─────────────────
+// ── Load AdSense + grant GA4 consent after cookie acceptance ─────────────────
 (function(){
   try {
     var consent = localStorage.getItem('ecmx_de_cookie_consent');
     if (consent === 'accepted') {
+      if(window.gtag){gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'})}
       var s = document.createElement('script');
       s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7982065666403927';
       s.async = true; s.crossOrigin = 'anonymous';
@@ -635,10 +642,6 @@ function toggleAd() {
           try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e){}
         });
       };
-      var g = document.createElement('script');
-      g.src = 'https://www.googletagmanager.com/gtag/js?id=G-501QLQMB5Q';
-      g.async = true; document.head.appendChild(g);
-      g.onload = function(){ window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments)} window.gtag=gtag; gtag('js',new Date()); gtag('config','G-501QLQMB5Q'); };
     }
   } catch(e){}
 })();

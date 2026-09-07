@@ -119,6 +119,12 @@ tbody tr:nth-child(even){background:var(--gray-light)}
   .steps li::before{left:0.75rem;top:1.25rem;width:28px;height:28px;font-size:13px}
 }
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-501QLQMB5Q"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag("consent","default",{analytics_storage:"denied",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",wait_for_update:500});
+gtag("js",new Date());gtag("config","G-501QLQMB5Q");
+</script>
 </head>
 <body>
 
@@ -411,15 +417,12 @@ tbody tr:nth-child(even){background:var(--gray-light)}
   } catch(e) {}
 })();
 
-// ── Load GA4 after cookie consent ─────────────────
+// ── Grant GA4 consent after cookie acceptance ─────────────────
 (function(){
   try {
     var consent = localStorage.getItem('ecmx_de_cookie_consent');
     if (consent === 'accepted') {
-      var g = document.createElement('script');
-      g.src = 'https://www.googletagmanager.com/gtag/js?id=G-501QLQMB5Q';
-      g.async = true; document.head.appendChild(g);
-      g.onload = function(){ window.dataLayer=window.dataLayer||[]; function gtag(){dataLayer.push(arguments)} window.gtag=gtag; gtag('js',new Date()); gtag('config','G-501QLQMB5Q'); };
+      if(window.gtag){gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'})}
     }
   } catch(e){}
 })();

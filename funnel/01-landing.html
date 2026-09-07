@@ -355,6 +355,12 @@ tbody tr:nth-child(even){background:var(--gray-light)}
   .cta-primary{font-size:16px;padding:14px 24px}
 }
 </style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-501QLQMB5Q"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag("consent","default",{analytics_storage:"denied",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",wait_for_update:500});
+gtag("js",new Date());gtag("config","G-501QLQMB5Q");
+</script>
 </head>
 <body>
 
@@ -670,7 +676,8 @@ tbody tr:nth-child(even){background:var(--gray-light)}
     if (!consent) {
       document.getElementById('cookieBanner').classList.add('visible');
     } else if (consent === 'accepted') {
-      loadAdSense();loadGA4();
+      if(window.gtag){gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'})}
+      loadAdSense();
     }
   } catch(e) {
     document.getElementById('cookieBanner').classList.add('visible');
@@ -680,15 +687,14 @@ tbody tr:nth-child(even){background:var(--gray-light)}
 function acceptCookies(){
   try { localStorage.setItem('ecmx_de_cookie_consent', 'accepted'); } catch(e){}
   document.getElementById('cookieBanner').classList.remove('visible');
-  loadAdSense();loadGA4();
+  if(window.gtag){gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'})}
+  loadAdSense();
 }
 
 function rejectCookies(){
   try { localStorage.setItem('ecmx_de_cookie_consent', 'rejected'); } catch(e){}
   document.getElementById('cookieBanner').classList.remove('visible');
 }
-
-function loadGA4(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-501QLQMB5Q';s.async=true;document.head.appendChild(s);s.onload=function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}window.gtag=gtag;gtag('js',new Date());gtag('config','G-501QLQMB5Q')}}
 
 function loadAdSense(){
   var s = document.createElement('script');

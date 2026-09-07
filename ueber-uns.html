@@ -10,6 +10,12 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Lora:wght@400;500;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/shared.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-501QLQMB5Q"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag("consent","default",{analytics_storage:"denied",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied",wait_for_update:500});
+gtag("js",new Date());gtag("config","G-501QLQMB5Q");
+</script>
 </head>
 <body>
 
@@ -125,7 +131,7 @@
 (function(){try{var c=localStorage.getItem('ecmx_de_cookie_consent');if(!c)document.getElementById('cookieBanner').classList.add('visible');else if(c==='accepted'){loadAdSense();loadGA4()}}catch(e){document.getElementById('cookieBanner').classList.add('visible')}})();
 function acceptCookies(){try{localStorage.setItem('ecmx_de_cookie_consent','accepted')}catch(e){}document.getElementById('cookieBanner').classList.remove('visible');loadAdSense();loadGA4()}
 function rejectCookies(){try{localStorage.setItem('ecmx_de_cookie_consent','rejected')}catch(e){}document.getElementById('cookieBanner').classList.remove('visible')}
-function loadGA4(){var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-501QLQMB5Q';s.async=true;document.head.appendChild(s);s.onload=function(){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}window.gtag=gtag;gtag('js',new Date());gtag('config','G-501QLQMB5Q')}}
+function loadGA4(){if(window.gtag){gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'})}}
 function loadAdSense(){var s=document.createElement('script');s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7982065666403927';s.async=true;s.crossOrigin='anonymous';document.head.appendChild(s);s.onload=function(){document.querySelectorAll('.adsbygoogle').forEach(function(){try{(adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}})}}
 </script>
 </body>
