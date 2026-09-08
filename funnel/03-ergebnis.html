@@ -96,6 +96,44 @@ tbody tr:nth-child(even){background:var(--gray-light)}
 .faq-item.open .faq-a{max-height:600px}
 .faq-a p{padding-top:0.75rem;color:var(--gray-text);font-size:15px}
 
+/* ── Top CTA Button (Antrag) ──────────────────────── */
+.antrag-cta{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  max-width:720px;
+  margin:0 auto 2rem;
+  padding:18px 32px;
+  background:var(--teal);
+  color:#fff;
+  font-family:var(--font-body);
+  font-size:18px;
+  font-weight:700;
+  border:none;
+  border-radius:8px;
+  text-decoration:none;
+  cursor:pointer;
+  transition:background .25s,transform .15s,box-shadow .25s;
+  box-shadow:0 4px 14px rgba(43,107,94,.35);
+  animation:ctaPulse 2.5s ease-in-out infinite;
+}
+@keyframes ctaPulse{
+  0%,100%{transform:scale(1);box-shadow:0 4px 14px rgba(43,107,94,.35)}
+  50%{transform:scale(1.06);box-shadow:0 8px 28px rgba(43,107,94,.6)}
+}
+.antrag-cta:hover{background:#24594F;transform:translateY(-2px);box-shadow:0 6px 20px rgba(43,107,94,.45)}
+.antrag-cta svg{flex-shrink:0;transition:transform .25s}
+.antrag-cta:hover svg{transform:translateX(4px)}
+
+/* ── In-Content Ad ────────────────────────────────── */
+.ad-incontent{margin:2rem 0;text-align:center}
+.ad-incontent .adsbygoogle{display:block;width:100%;min-height:100px}
+
+/* ── Hero Ad ──────────────────────────────────────── */
+.ad-hero{margin:1.5rem auto;text-align:center;max-width:720px}
+.ad-hero .adsbygoogle{display:block;width:100%;min-height:100px}
+
 /* ── CTA ───────────────────────────────────────────── */
 .cta-section{text-align:center;padding:3rem 1.5rem;background:var(--gray-light);margin-top:3rem}
 .cta-section h2{font-family:var(--font-display);font-size:clamp(1.5rem,3vw,2rem);font-weight:600;color:var(--navy);margin-bottom:1rem}
@@ -145,6 +183,21 @@ gtag("js",new Date());gtag("config","G-501QLQMB5Q");
   <h1>Grundsicherung beantragen — Schritt für Schritt</h1>
   <p class="subtitle">Alles, was du brauchst: Voraussetzungen, Unterlagen, Antragstellung und Bearbeitungszeiten.</p>
 
+  <!-- ═══ Botón principal: Antrag stellen ═══ -->
+  <a href="https://jobcenter.digital" class="antrag-cta" target="_blank" rel="noopener">
+    JETZT ANTRAG STELLEN
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+  </a>
+
+  <!-- AdSense Top -->
+  <div class="ad-hero">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7982065666403927"
+         data-ad-slot="1135641748"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
 
   <h2>So stellst du den Antrag</h2>
 
@@ -259,6 +312,16 @@ gtag("js",new Date());gtag("config","G-501QLQMB5Q");
   </ul>
 
 
+  <!-- AdSense In-Content 1 -->
+  <div class="ad-incontent">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7982065666403927"
+         data-ad-slot="1135641748"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
   <h2>Regelbedarfe 2026 — Vollständige Übersicht</h2>
 
   <div class="table-wrap">
@@ -316,6 +379,16 @@ gtag("js",new Date());gtag("config","G-501QLQMB5Q");
   </ul>
 
 
+  <!-- AdSense In-Content 2 -->
+  <div class="ad-incontent">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7982065666403927"
+         data-ad-slot="1135641748"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
   <h2>Häufig gestellte Fragen</h2>
 
   <div class="faq-item">
@@ -346,6 +419,16 @@ gtag("js",new Date());gtag("config","G-501QLQMB5Q");
   <div class="faq-item">
     <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Was ist die Beratungshotline?</div>
     <div class="faq-a"><p>Die kostenlose Hotline der Bundesagentur für Arbeit erreichst du unter <strong>0800 4 555500</strong> (Montag-Freitag 8-18 Uhr). Dort kannst du alle Fragen zur Grundsicherung stellen.</p></div>
+  </div>
+
+  <!-- AdSense In-Content 3 -->
+  <div class="ad-incontent">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-7982065666403927"
+         data-ad-slot="1135641748"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
   </div>
 
 </article>
@@ -415,6 +498,14 @@ gtag("js",new Date());gtag("config","G-501QLQMB5Q");
     detail.innerHTML = html;
     banner.classList.add('visible');
   } catch(e) {}
+})();
+
+// ── AdSense lazy load ───────────────────────────────────────
+(function(){
+  var s=document.createElement('script');
+  s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7982065666403927';
+  s.async=true;s.crossOrigin='anonymous';document.head.appendChild(s);
+  s.onload=function(){document.querySelectorAll('.adsbygoogle').forEach(function(){try{(adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}});};
 })();
 
 // ── Grant GA4 consent after cookie acceptance ─────────────────
