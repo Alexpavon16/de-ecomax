@@ -15,7 +15,8 @@
     { "source": "/neue-grundsicherung-vs-buergergeld", "destination": "/artikel/neue-grundsicherung-vs-buergergeld.html" },
     { "source": "/bildung-und-teilhabe", "destination": "/artikel/bildung-und-teilhabe.html" },
     { "source": "/grundsicherung-eu-buerger", "destination": "/artikel/grundsicherung-eu-buerger.html" },
-    { "source": "/miete-heizung-jobcenter", "destination": "/artikel/miete-heizung-jobcenter.html" }
+    { "source": "/miete-heizung-jobcenter", "destination": "/artikel/miete-heizung-jobcenter.html" },
+    { "source": "/zusaetzliche-hilfen", "destination": "/artikel/zusaetzliche-hilfen.html" }
   ],
   "headers": [
     {
